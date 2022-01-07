@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from .menegers import CustomUserManagar
 # Create your models here.
 
@@ -19,10 +19,10 @@ class UserByPhoneNumber(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'phone_number'
     REQUIRED_FIELDS = []
-    
+
     def __str__(self):
         return self.first_name
-    
+
     def get_full_name(self):
         return self.first_name + ' ' + self.last_name
 
@@ -32,7 +32,7 @@ class UserByPhoneNumber(AbstractBaseUser, PermissionsMixin):
     @property
     def is_staff(self):
         return self.staff
-        
+
     @property
     def is_superuser(self):
         return self.superuser
